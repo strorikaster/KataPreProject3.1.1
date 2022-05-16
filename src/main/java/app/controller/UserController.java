@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/users")
 public class UserController {
 
     @Autowired
@@ -45,7 +45,7 @@ public class UserController {
             return "new";
         }
         userService.save(user);
-        return "redirect:/";
+        return "redirect:/users";
     }
 
     @GetMapping("/{id}/edit")
@@ -60,13 +60,13 @@ public class UserController {
             return "edit";
         }
         userService.update(user);
-        return "redirect:/";
+        return "redirect:/users";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
         userService.delete(id);
-        return "redirect:/";
+        return "redirect:/users";
     }
 }
 
